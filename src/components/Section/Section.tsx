@@ -1,6 +1,10 @@
-import PropTypes from 'prop-types';
+import { ReactNode } from 'react';
 
-export function Section({ title, children }) {
+interface SectionProps {
+  title: string;
+  children: ReactNode;
+}
+export const Section: React.FC<SectionProps> = ({ title, children }) => {
   return (
     <div
       className="mx-auto mt-8 rounded-lg pl-0 box-border md:mt-4
@@ -12,9 +16,4 @@ export function Section({ title, children }) {
       {children}
     </div>
   );
-}
-
-Section.propTypes = {
-  title: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
 };

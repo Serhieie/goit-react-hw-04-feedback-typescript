@@ -1,12 +1,18 @@
-import PropTypes from 'prop-types';
 import { CalculatedStats } from '../CalculatedStats/CalculatedStats';
 
-export function Statistics({
+interface StatisticsProps {
+  marksKeys: string[];
+  marksValues: number[];
+  percentageOfPositive: number;
+  totalFeedback: number;
+}
+
+export const Statistics: React.FC<StatisticsProps> = ({
   marksKeys,
   marksValues,
   percentageOfPositive,
   totalFeedback,
-}) {
+}) => {
   return (
     <div
       className="mx-auto mt-5 flex flex-col justify-center
@@ -41,11 +47,4 @@ items-center gap-5 max-w-3xl rounded-lg pl-0 md:mt-4"
       />
     </div>
   );
-}
-
-Statistics.propTypes = {
-  marksKeys: PropTypes.arrayOf(PropTypes.string).isRequired,
-  marksValues: PropTypes.arrayOf(PropTypes.number).isRequired,
-  percentageOfPositive: PropTypes.string.isRequired,
-  totalFeedback: PropTypes.number.isRequired,
 };

@@ -1,6 +1,12 @@
-import PropTypes from 'prop-types';
+interface ControlsProps {
+  marksKeys: string[];
+  onLeaveFeedback: (key: string) => void;
+}
 
-export function Controls({ marksKeys, onLeaveFeedback }) {
+export const Controls: React.FC<ControlsProps> = ({
+  marksKeys,
+  onLeaveFeedback,
+}) => {
   return (
     <ul
       className="  mx-auto; mt-28 flex justify-center gap-5 w-full max-w-[700px]
@@ -20,9 +26,4 @@ export function Controls({ marksKeys, onLeaveFeedback }) {
       ))}
     </ul>
   );
-}
-
-Controls.propTypes = {
-  marksKeys: PropTypes.arrayOf(PropTypes.string).isRequired,
-  onLeaveFeedback: PropTypes.func.isRequired,
 };

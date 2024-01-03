@@ -1,4 +1,12 @@
-export function CalculatedStats({ percentageOfPositive, totalFeedback }) {
+interface CalculatedStatsProps {
+  percentageOfPositive: number;
+  totalFeedback: number;
+}
+
+export const CalculatedStats: React.FC<CalculatedStatsProps> = ({
+  percentageOfPositive,
+  totalFeedback,
+}) => {
   return (
     <>
       <p
@@ -15,4 +23,4 @@ export function CalculatedStats({ percentageOfPositive, totalFeedback }) {
       </p>
     </>
   );
-}
+};

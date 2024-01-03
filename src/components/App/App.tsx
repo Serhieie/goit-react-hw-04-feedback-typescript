@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Controls } from '../Controls/Controls';
 import { Statistics } from '../Statistics/Statistics';
 import { Notification } from '../Notification/Notification';
@@ -8,7 +8,7 @@ import {
   countPositiveFeedbackPercentage,
 } from '../helpers/helpers';
 
-export const App = () => {
+export const App: React.FC = () => {
   //як Краще?
   // const [marks, setMarks] = useState({ good: 0, neutral: 0, bad: 0 });
   // const addMark = key => {
@@ -34,7 +34,7 @@ export const App = () => {
   const marksKeys = Object.keys(marks);
 
   //по ключу опрокинутому з Управління виявляємо куда додати 1
-  const addMark = key => {
+  const addMark = (key: string): void => {
     switch (key) {
       case 'good':
         return setGood(state => state + 1);
@@ -52,7 +52,6 @@ export const App = () => {
     totalFeedback,
     marks.good
   );
-
   return (
     <div
       className={`flex flex-col items-center mx-auto mt-20 w-[60%] py-7 px-5 rounded-lg
